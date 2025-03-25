@@ -1,29 +1,7 @@
 'use client';
 
-import { LucideProps } from 'lucide-react';
-import { 
-  Send, 
-  FileText, 
-  Globe, 
-  Window,
-  MessageSquare,
-} from 'lucide-react';
+import { Send } from 'lucide-react';
 
-export const Icons = {
-  send: Send,
-  file: FileText,
-  globe: Globe,
-  window: Window,
-  message: MessageSquare,
-};
-
-export type Icon = keyof typeof Icons;
-
-interface IconComponentProps extends LucideProps {
-  name: Icon;
-}
-
-export function IconComponent({ name, ...props }: IconComponentProps) {
-  const Icon = Icons[name];
-  return <Icon {...props} />;
+export function SendIcon(props: React.ComponentProps<typeof Send>) {
+  return <Send {...props} />;
 } 

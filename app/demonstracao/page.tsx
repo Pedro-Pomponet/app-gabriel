@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send } from 'lucide-react';
+import { SendIcon } from '../components/Icons';
 import { Message } from '../types';
 import { sendMessage } from '../services/chat';
 
@@ -86,7 +86,7 @@ export default function DemonstracaoPage() {
                 } text-white`}
                 disabled={isLoading}
               >
-                <Send size={20} />
+                <SendIcon size={20} />
               </button>
             </div>
           </form>
