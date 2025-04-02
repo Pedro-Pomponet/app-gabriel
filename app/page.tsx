@@ -1,18 +1,17 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
   const router = useRouter();
 
-  const fadeInUp = {
-    initial: { y: 60, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    transition: { duration: 0.6 }
+  const fadeInUp: Variants = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1 }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     animate: {
       transition: {
         staggerChildren: 0.2
@@ -29,7 +28,11 @@ export default function HomePage() {
         variants={staggerContainer}
       >
         {/* Cabeçalho */}
-        <motion.div className="text-center space-y-4" variants={fadeInUp}>
+        <motion.div 
+          className="text-center space-y-4" 
+          variants={fadeInUp}
+          transition={{ duration: 0.5 }}
+        >
           <p className="text-gray-600 italic">Sem planilhas complicadas ou gerentes de investimentos.</p>
           <h1 className="text-4xl md:text-5xl font-bold">
             <span className="text-green-600">Economize </span>
