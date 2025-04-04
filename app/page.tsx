@@ -1,61 +1,35 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
   const router = useRouter();
 
-  const fadeInUp: Variants = {
-    initial: { y: 20, opacity: 0 },
-    animate: { y: 0, opacity: 1 }
-  };
-
-  const staggerContainer: Variants = {
-    animate: {
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <motion.div 
-        className="max-w-4xl mx-auto px-4 py-16 space-y-12"
-        initial="initial"
-        animate="animate"
-        variants={staggerContainer}
+        className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 space-y-8 sm:space-y-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        {/* Cabeçalho */}
-        <motion.div 
-          className="text-center space-y-4" 
-          variants={fadeInUp}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-gray-600 italic">Sem planilhas complicadas ou gerentes de investimentos.</p>
-          <h1 className="text-4xl md:text-5xl font-bold">
-            <span className="text-green-600">Economize </span>
-            <span className="text-orange-400">+ de 300 Reais </span>
-            <span className="text-green-600">Em 30 Dias</span>
+        <div className="text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Controle seus gastos de forma <span className="text-green-600">inteligente</span>
           </h1>
-          <h2 className="text-2xl md:text-3xl text-green-600 font-semibold">
-            Sem Cortar Os "Luxos" E Apenas Com O Whatsapp.
-          </h2>
-          <p className="text-lg text-gray-700 mt-6">
-            Não é app, nem planilha, nem Notion, 
-            <span className="text-green-600 font-semibold"> é inteligência artificial de ponta.</span>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            Acompanhe suas despesas, receba insights personalizados e tome melhores decisões financeiras.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Cards */}
-        <motion.div 
-          className="grid md:grid-cols-2 gap-8"
-          variants={staggerContainer}
-        >
+        {/* Cards de Funcionalidades */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
           <motion.div 
             className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
             <h3 className="text-xl font-semibold text-green-600 mb-4">Para onde vai seu dinheiro?</h3>
             <p className="text-gray-600">Você trabalha o mês inteiro, mas no final</p>
@@ -64,7 +38,9 @@ export default function HomePage() {
 
           <motion.div 
             className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
           >
             <h3 className="text-xl font-semibold text-green-600 mb-4">Sem planilhas ou apps</h3>
             <p className="text-gray-600">São soluções complicadas que dão preguiça de usar.</p>
@@ -73,7 +49,9 @@ export default function HomePage() {
 
           <motion.div 
             className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
           >
             <h3 className="text-xl font-semibold text-green-600 mb-4">Perdido nas dívidas</h3>
             <p className="text-gray-600">Não sabe quanto paga de parcela, quanto tempo falta, quem deve,</p>
@@ -82,27 +60,26 @@ export default function HomePage() {
 
           <motion.div 
             className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
           >
             <h3 className="text-xl font-semibold text-green-600 mb-4">Pagando mais caro sempre</h3>
             <p className="text-gray-600">Você compra por impulso ou não pesquisa antes,</p>
             <p className="text-green-600 font-semibold">gastando mais e deixando de economizar.</p>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Botão de Ação */}
-        <motion.div 
-          className="text-center"
-          variants={fadeInUp}
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <button
-            onClick={() => router.push('/passo-1')}
-            className="bg-green-600 hover:bg-green-700 text-white text-xl font-semibold px-12 py-4 rounded-full
-                     shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+            onClick={() => router.push('/demo')}
+            className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold 
+                     px-8 py-4 rounded-full text-lg transition-all duration-200
+                     shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
-            Começar Agora
+            Ver Demonstração
           </button>
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   );
