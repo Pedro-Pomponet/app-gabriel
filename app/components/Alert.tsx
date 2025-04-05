@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface AlertProps {
   message: string;
@@ -10,10 +11,7 @@ interface AlertProps {
 
 export function Alert({ message, type, onClose }: AlertProps) {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose();
-    }, 3000);
-
+    const timer = setTimeout(onClose, 3000);
     return () => clearTimeout(timer);
   }, [onClose]);
 
@@ -24,20 +22,25 @@ export function Alert({ message, type, onClose }: AlertProps) {
   }[type];
 
   return (
-    <div className={`fixed top-4 right-4 z-50 animate-slide-in`}>
-      <div className={`${bgColor} border-l-4 p-4 rounded shadow-lg`}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
+    <AnimatePresence>
+      <motion.div 
+        className="fixed top-4 right-4 z-50"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+      >
+        <div className={`${bgColor} border-l-4 p-4 rounded shadow-lg`}>
+          <div className="flex items-center justify-between">
             <p className="font-medium">{message}</p>
+            <button
+              onClick={onClose}
+              className="ml-4 text-gray-500 hover:text-gray-700"
+            >
+              ×
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="ml-4 text-gray-500 hover:text-gray-700"
-          >
-            ×
-          </button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 } 
