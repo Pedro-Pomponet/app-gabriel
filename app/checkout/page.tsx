@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
-import { UserIcon, CardIcon, BagIcon, TagIcon, ShieldIcon } from '@/components/UIIcons';
 
 export default function CheckoutPage() {
   const [selectedPayment, setSelectedPayment] = useState<'credit' | 'pix'>('credit');
@@ -81,7 +80,7 @@ export default function CheckoutPage() {
           <div className="mb-12">
             <h2 className="flex items-center gap-3 text-xl font-semibold mb-6 text-gray-800">
               <span className="flex items-center justify-center w-8 h-8 bg-[#128c7e]/10 text-[#128c7e] rounded-lg">
-                <UserIcon />
+                👤
               </span>
               Identificação
             </h2>
@@ -134,7 +133,7 @@ export default function CheckoutPage() {
           <div className="mb-12">
             <h2 className="flex items-center gap-3 text-xl font-semibold mb-6 text-gray-800">
               <span className="flex items-center justify-center w-8 h-8 bg-[#128c7e]/10 text-[#128c7e] rounded-lg">
-                <CardIcon />
+                💳
               </span>
               Pagamento
             </h2>
@@ -233,7 +232,7 @@ export default function CheckoutPage() {
           <div className="mb-12">
             <h2 className="flex items-center gap-3 text-xl font-semibold mb-6 text-gray-800">
               <span className="flex items-center justify-center w-8 h-8 bg-[#128c7e]/10 text-[#128c7e] rounded-lg">
-                <BagIcon />
+                🛍️
               </span>
               Sua Compra
               <span className="ml-auto text-base font-normal">1 item • R$ 57,00</span>
