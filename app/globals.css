@@ -24,6 +24,8 @@ body {
   overflow-y: auto;
   scroll-behavior: smooth;
   scroll-padding: 1rem;
+  background-color: #efeae2;
+  position: relative;
 }
 
 .chat-bubble {
@@ -255,4 +257,17 @@ body {
   border-top: 10px solid white;
   border-bottom: 10px solid transparent;
   transform: rotate(45deg);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Adicionar classes para o background do WhatsApp */
+.whatsapp-bg {
+  background-image: url('/images/whatsapp-bg.png');
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: 0.06;
 }

@@ -9,7 +9,7 @@ export default function CheckoutPage() {
   const [showCupomInput, setShowCupomInput] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#128c7e]/5 to-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#128c7e]/5 to-gray-50 py-6 md:py-12">
       <motion.div 
         className="max-w-xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
