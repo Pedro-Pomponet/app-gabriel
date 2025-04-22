@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Grid de Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Card 1 */}
           <div className="bg-white rounded-xl p-6 shadow-sm">
             <div className="flex items-start gap-4">
@@ -82,6 +82,23 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Botões de Ação */}
+        <div className="flex flex-col items-center gap-4 mt-8">
+          <button
+            onClick={() => router.push('/demo')}
+            className="bg-[#25d366] hover:bg-[#1ea557] text-white text-lg font-medium px-8 py-4 rounded-full w-full md:w-auto min-w-[280px] transition-colors"
+          >
+            Ver Demonstração
+          </button>
+
+          <button
+            onClick={() => window.location.href = 'https://economizai-delta.vercel.app/pagamento'}
+            className="bg-[#25d366] hover:bg-[#1ea557] text-white text-xl font-medium px-8 py-4 rounded-full w-full md:w-auto min-w-[280px] transition-colors"
+          >
+            Assinar por 14,90/mês
+          </button>
         </div>
       </div>
     </main>
