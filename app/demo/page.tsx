@@ -46,6 +46,11 @@ const getWeekPeriod = () => {
   };
 };
 
+// Adicionar uma função de scroll
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 export default function DemoPage() {
   const [showChat, setShowChat] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
@@ -67,6 +72,8 @@ export default function DemoPage() {
   const [showStep4Chat, setShowStep4Chat] = useState(false);
   const [showTransactions, setShowTransactions] = useState(false);
   const [showReports, setShowReports] = useState(false);
+  const [showStep5, setShowStep5] = useState(false);
+  const [showStep6, setShowStep6] = useState(false);
 
   // Guarda o timestamp quando cada mensagem é enviada
   const [firstMessageTime, setFirstMessageTime] = useState('');
@@ -131,8 +138,14 @@ export default function DemoPage() {
     }, 3000);
   };
 
+  const handleStep1Continue = () => {
+    setCurrentStep(2);
+    scrollToTop();
+  };
+
   const handleStep2Continue = () => {
     setCurrentStep(3);
+    scrollToTop();
   };
 
   const handleStep3Click = () => {
@@ -156,6 +169,7 @@ export default function DemoPage() {
 
   const handleStep3Continue = () => {
     setCurrentStep(4);
+    scrollToTop();
   };
 
   const handleStep4Click = () => {
@@ -541,15 +555,17 @@ export default function DemoPage() {
                                   <p className="text-sm mb-2">Período: {weekPeriod.start} a {weekPeriod.end}</p>
                                   
                                   <div className="space-y-1 mb-3">
-                                    <p>Receitas: R$ 1.000,00</p>
-                                    <p>Despesas: R$ 35,00</p>
-                                    <p>Saldo: R$ 965,00</p>
+                                    <p>Receitas: R$ 2.350,00</p>
+                                    <p>Despesas: R$ 876,50</p>
+                                    <p>Saldo: R$ 1.473,50</p>
                                   </div>
                                   
                                   <p className="font-medium mb-2">Principais categorias de gastos:</p>
-                                  <p>🍽️ Alimentação: R$ 35,00 (100%)</p>
+                                  <p>🍽️ Alimentação: R$ 425,00 (48%)</p>
+                                  <p>🚗 Transporte: R$ 215,50 (25%)</p>
+                                  <p>💊 Saúde: R$ 236,00 (27%)</p>
                                   
-                                  <p className="mt-3">💡 Análise: Sua semana foi excelente do ponto de vista financeiro! Você manteve os gastos bem abaixo da sua receita.</p>
+                                  <p className="mt-3">💡 Análise: Você está mantendo um bom controle dos gastos! Sua maior despesa é com alimentação, seguida por saúde e transporte.</p>
                                   
                                   <p className="text-[11px] text-gray-500 mt-[1px]">{thirdMessageTime}</p>
                                 </div>
@@ -577,136 +593,159 @@ export default function DemoPage() {
                   );
                 case 4:
                   return (
-                    <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 20 }}
-                    >
-                      <div className="flex items-start gap-3 mb-4">
-                        <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
-                          4
+                    <>
+                      {/* Passo 4 - Dashboard */}
+                      <motion.div 
+                        className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mb-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <div className="flex items-start gap-3 mb-4">
+                          <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
+                            4
+                          </div>
+                          <div>
+                            <h2 className="text-lg font-medium mb-1">Dashboard Principal</h2>
+                            <p className="text-gray-600 text-sm">
+                              Tenha uma visão geral das suas finanças em um só lugar.<br />
+                              Veja seus gastos, receitas e saldo atual.
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <h2 className="text-lg font-medium mb-1">Acesso ao dashboard</h2>
-                          <p className="text-gray-600 text-sm">
-                            Quer saber pra onde seu dinheiro tá indo?<br />
-                            Acesse agora seu painel com tudo detalhado.
+
+                        <div className="rounded-lg overflow-hidden mb-3">
+                          <video 
+                            autoPlay 
+                            loop 
+                            muted 
+                            playsInline
+                            className="w-full h-auto"
+                          >
+                            <source src="/videos/Dashboard.mp4" type="video/mp4" />
+                            Seu navegador não suporta vídeos.
+                          </video>
+                        </div>
+
+                        <div className="bg-white text-gray-800 px-2 py-[6px] rounded-lg shadow-sm mb-4">
+                          <p className="text-[14.5px] leading-[19px] text-gray-600">
+                            Veja todas as suas transações, edite valores, filtre por categorias e visualize gráficos com seus hábitos financeiros.
                           </p>
                         </div>
-                      </div>
 
-                      <AnimatePresence mode="wait">
-                        {!showStep4Chat ? (
-                          <div className="flex justify-end">
-                            <motion.button
-                              onClick={handleStep4Click}
-                              className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
-                              exit={{ opacity: 0, y: 10 }}
+                        {!showStep5 && (
+                          <motion.div className="flex justify-center mt-4">
+                            <button
+                              onClick={() => setShowStep5(true)}
+                              className="bg-[#25d366] text-white px-6 py-2 rounded-full"
                             >
-                              <ArrowIcon />
-                              Abrir meu Dashboard
-                            </motion.button>
-                          </div>
-                        ) : (
-                          <motion.div 
-                            className="bg-[#efeae2] rounded-lg p-3 space-y-3"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                          >
-                            <motion.div
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              className="flex flex-col items-end"
-                            >
-                              <div className="rounded-lg overflow-hidden mb-3">
-                                <video 
-                                  autoPlay 
-                                  loop 
-                                  muted 
-                                  playsInline
-                                  className="w-full"
-                                >
-                                  <source src="/videos/Dashboard.mp4" type="video/mp4" />
-                                </video>
-                              </div>
-                              
-                              <div className="bg-white text-gray-800 px-2 py-[6px] rounded-lg shadow-sm mb-4">
-                                <p className="text-[14.5px] leading-[19px] text-gray-600">
-                                  Veja todas as suas transações, edite valores, filtre por categorias e visualize gráficos com seus hábitos financeiros.
-                                </p>
-                              </div>
-
-                              {/* Botão Ver detalhamento de transações */}
-                              <motion.button
-                                onClick={handleTransactionsClick}
-                                className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-fit mb-3"
-                              >
-                                Ver detalhamento de transações
-                              </motion.button>
-
-                              {/* Vídeo de Transações */}
-                              {showTransactions && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: 'auto' }}
-                                  className="flex flex-col items-end w-full mb-4"
-                                >
-                                  <div className="rounded-lg overflow-hidden mb-3">
-                                    <video 
-                                      autoPlay 
-                                      loop 
-                                      muted 
-                                      playsInline
-                                      className="w-full"
-                                    >
-                                      <source src="/videos/Transacao.mp4" type="video/mp4" />
-                                    </video>
-                                  </div>
-
-                                  {/* Botão Relatórios */}
-                                  <motion.button
-                                    onClick={handleReportsClick}
-                                    className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-fit"
-                                  >
-                                    Ver relatórios detalhados
-                                  </motion.button>
-
-                                  {/* Vídeo de Relatórios */}
-                                  {showReports && (
-                                    <motion.div
-                                      initial={{ opacity: 0, height: 0 }}
-                                      animate={{ opacity: 1, height: 'auto' }}
-                                      className="mt-4"
-                                    >
-                                      <div className="rounded-lg overflow-hidden mb-4">
-                                        <video 
-                                          autoPlay 
-                                          loop 
-                                          muted 
-                                          playsInline
-                                          className="w-full"
-                                        >
-                                          <source src="/videos/Relatorios.mp4" type="video/mp4" />
-                                        </video>
-                                      </div>
-
-                                      {/* Botão Quero Começar */}
-                                      <motion.button
-                                        onClick={() => window.location.href = 'https://economizai-delta.vercel.app/pagamento'}
-                                        className="bg-[#25d366] text-white px-6 py-3 rounded-lg w-full font-medium text-lg"
-                                      >
-                                        Quero começar agora
-                                      </motion.button>
-                                    </motion.div>
-                                  )}
-                                </motion.div>
-                              )}
-                            </motion.div>
+                              Ver Transações
+                            </button>
                           </motion.div>
                         )}
-                      </AnimatePresence>
-                    </motion.div>
+                      </motion.div>
+
+                      {/* Passo 5 - Transações */}
+                      {showStep5 && (
+                        <motion.div 
+                          className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mb-4"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                        >
+                          <div className="flex items-start gap-3 mb-4">
+                            <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
+                              5
+                            </div>
+                            <div>
+                              <h2 className="text-lg font-medium mb-1">Detalhamento de Transações</h2>
+                              <p className="text-gray-600 text-sm">
+                                Explore todas suas transações com detalhes.<br />
+                                Filtre, edite e organize seus gastos facilmente.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="rounded-lg overflow-hidden mb-3">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-auto"
+                            >
+                              <source src="/videos/Transacao.mp4" type="video/mp4" />
+                              Seu navegador não suporta vídeos.
+                            </video>
+                          </div>
+
+                          <div className="bg-white text-gray-800 px-2 py-[6px] rounded-lg shadow-sm mb-4">
+                            <p className="text-[14.5px] leading-[19px] text-gray-600">
+                              Visualize cada transação, aplique filtros por data ou categoria, e faça edições quando necessário.
+                            </p>
+                          </div>
+
+                          {!showStep6 && (
+                            <motion.div className="flex justify-center mt-4">
+                              <button
+                                onClick={() => setShowStep6(true)}
+                                className="bg-[#25d366] text-white px-6 py-2 rounded-full"
+                              >
+                                Ver Relatórios
+                              </button>
+                            </motion.div>
+                          )}
+                        </motion.div>
+                      )}
+
+                      {/* Passo 6 - Relatórios */}
+                      {showStep6 && (
+                        <motion.div 
+                          className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                        >
+                          <div className="flex items-start gap-3 mb-4">
+                            <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
+                              6
+                            </div>
+                            <div>
+                              <h2 className="text-lg font-medium mb-1">Relatórios Detalhados</h2>
+                              <p className="text-gray-600 text-sm">
+                                Veja todos os detalhes das suas transações.<br />
+                                Filtre, edite e organize seus gastos facilmente.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="rounded-lg overflow-hidden mb-3">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-auto"
+                            >
+                              <source src="/videos/Relatorios.mp4" type="video/mp4" />
+                              Seu navegador não suporta vídeos.
+                            </video>
+                          </div>
+
+                          <div className="bg-white text-gray-800 px-2 py-[6px] rounded-lg shadow-sm mb-4">
+                            <p className="text-[14.5px] leading-[19px] text-gray-600">
+                              Veja todos os detalhes das suas transações, edite valores, filtre por categorias e visualize gráficos com seus hábitos financeiros.
+                            </p>
+                          </div>
+
+                          <motion.div className="flex justify-center mt-4">
+                            <button
+                              onClick={() => window.location.href = 'https://economizai-delta.vercel.app/pagamento'}
+                              className="bg-[#25d366] text-white px-6 py-3 rounded-lg w-full font-medium text-lg"
+                            >
+                              Quero começar agora
+                            </button>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </>
                   );
                 default:
                   return null;
