@@ -171,16 +171,16 @@ export default function DemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5] flex justify-center items-start">
+    <div className="min-h-screen bg-[#e5e7eb] flex justify-center items-start">
       <div className="w-full max-w-2xl md:py-8 md:px-4">
-        <div className="w-full max-w-[430px] mx-auto">
+        <div className="w-full max-w-[430px] mx-auto pt-6">
           <AnimatePresence mode="wait">
             {(() => {
               switch (currentStep) {
                 case 1:
                   return (
                     <motion.div 
-                      className="bg-white md:rounded-2xl shadow-sm p-4 md:p-6 min-h-screen md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -205,14 +205,16 @@ export default function DemoPage() {
 
                       <AnimatePresence mode="wait">
                         {!showChat ? (
-                          <motion.button
-                            onClick={handleStartChat}
-                            className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
-                            exit={{ opacity: 0, y: 10 }}
-                          >
-                            <ArrowIcon />
-                            farmácia 37
-                          </motion.button>
+                          <div className="flex justify-end">
+                            <motion.button
+                              onClick={handleStartChat}
+                              className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
+                              exit={{ opacity: 0, y: 10 }}
+                            >
+                              <ArrowIcon />
+                              farmácia 37
+                            </motion.button>
+                          </div>
                         ) : (
                           <motion.div 
                             className="bg-[#efeae2] rounded-lg p-3 space-y-3"
@@ -272,6 +274,7 @@ export default function DemoPage() {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
+                                className="flex justify-end"
                               >
                                 <button
                                   onClick={handleSalaryClick}
@@ -357,7 +360,7 @@ export default function DemoPage() {
                 case 2:
                   return (
                     <motion.div 
-                      className="bg-white md:rounded-2xl shadow-sm p-4 md:p-6 min-h-screen md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -382,14 +385,16 @@ export default function DemoPage() {
 
                       <AnimatePresence mode="wait">
                         {!showStep2Chat ? (
-                          <motion.button
-                            onClick={handleStep2Click}
-                            className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
-                            exit={{ opacity: 0, y: 10 }}
-                          >
-                            <ArrowIcon />
-                            Eita, a farmácia na vdd foi 52
-                          </motion.button>
+                          <div className="flex justify-end">
+                            <motion.button
+                              onClick={handleStep2Click}
+                              className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
+                              exit={{ opacity: 0, y: 10 }}
+                            >
+                              <ArrowIcon />
+                              Eita, a farmácia na vdd foi 52
+                            </motion.button>
+                          </div>
                         ) : (
                           <motion.div 
                             className="bg-[#efeae2] rounded-lg p-3 space-y-3"
@@ -466,7 +471,7 @@ export default function DemoPage() {
                 case 3:
                   return (
                     <motion.div 
-                      className="bg-white md:rounded-2xl shadow-sm p-4 md:p-6 min-h-screen md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -486,14 +491,16 @@ export default function DemoPage() {
 
                       <AnimatePresence mode="wait">
                         {!showStep3Chat ? (
-                          <motion.button
-                            onClick={handleStep3Click}
-                            className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
-                            exit={{ opacity: 0, y: 10 }}
-                          >
-                            <ArrowIcon />
-                            quanto eu gastei nos últimos dias?
-                          </motion.button>
+                          <div className="flex justify-end">
+                            <motion.button
+                              onClick={handleStep3Click}
+                              className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
+                              exit={{ opacity: 0, y: 10 }}
+                            >
+                              <ArrowIcon />
+                              quanto eu gastei nos últimos dias?
+                            </motion.button>
+                          </div>
                         ) : (
                           <motion.div 
                             className="bg-[#efeae2] rounded-lg p-3 space-y-3"
@@ -571,7 +578,7 @@ export default function DemoPage() {
                 case 4:
                   return (
                     <motion.div 
-                      className="bg-white md:rounded-2xl shadow-sm p-4 md:p-6 min-h-screen md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -591,14 +598,16 @@ export default function DemoPage() {
 
                       <AnimatePresence mode="wait">
                         {!showStep4Chat ? (
-                          <motion.button
-                            onClick={handleStep4Click}
-                            className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
-                            exit={{ opacity: 0, y: 10 }}
-                          >
-                            <ArrowIcon />
-                            Abrir meu Dashboard
-                          </motion.button>
+                          <div className="flex justify-end">
+                            <motion.button
+                              onClick={handleStep4Click}
+                              className="bg-[#075e54] text-white px-4 py-2 rounded-full flex items-center gap-2"
+                              exit={{ opacity: 0, y: 10 }}
+                            >
+                              <ArrowIcon />
+                              Abrir meu Dashboard
+                            </motion.button>
+                          </div>
                         ) : (
                           <motion.div 
                             className="bg-[#efeae2] rounded-lg p-3 space-y-3"
@@ -608,7 +617,7 @@ export default function DemoPage() {
                             <motion.div
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
-                              className="flex flex-col"
+                              className="flex flex-col items-end"
                             >
                               <div className="rounded-lg overflow-hidden mb-3">
                                 <video 
@@ -631,7 +640,7 @@ export default function DemoPage() {
                               {/* Botão Ver detalhamento de transações */}
                               <motion.button
                                 onClick={handleTransactionsClick}
-                                className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-full mb-3"
+                                className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-fit mb-3"
                               >
                                 Ver detalhamento de transações
                               </motion.button>
@@ -641,7 +650,7 @@ export default function DemoPage() {
                                 <motion.div
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
-                                  className="mb-4"
+                                  className="flex flex-col items-end w-full mb-4"
                                 >
                                   <div className="rounded-lg overflow-hidden mb-3">
                                     <video 
@@ -658,7 +667,7 @@ export default function DemoPage() {
                                   {/* Botão Relatórios */}
                                   <motion.button
                                     onClick={handleReportsClick}
-                                    className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-full"
+                                    className="bg-[#00a884] text-white px-4 py-2 rounded-lg w-fit"
                                   >
                                     Ver relatórios detalhados
                                   </motion.button>
