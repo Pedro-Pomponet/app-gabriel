@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FacebookPixel from './components/FacebookPixel';
 
 export const metadata: Metadata = {
   title: "Assistente Financeiro",
@@ -13,6 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <FacebookPixel />
+      </head>
       <body>
         {children}
       </body>

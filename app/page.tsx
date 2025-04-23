@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
+
 export default function Home() {
   const router = useRouter();
 
@@ -82,14 +88,26 @@ export default function Home() {
         {/* Botões de Ação */}
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           <button
-            onClick={() => router.push('/demo')}
+            onClick={() => {
+              window.fbq('track', 'ViewContent', {
+                content_name: 'Demo',
+                content_type: 'product_demo',
+              });
+              router.push('/demo');
+            }}
             className="bg-[#25d366] hover:bg-[#1ea557] text-white text-xl sm:text-2xl font-medium px-8 sm:px-10 py-4 sm:py-5 rounded-full w-full sm:w-auto min-w-[320px] transition-colors shadow-lg"
           >
             Ver Demonstração
           </button>
 
           <button
-            onClick={() => window.location.href = 'https://economizai-delta.vercel.app/pagamento'}
+            onClick={() => {
+              window.fbq('track', 'InitiateCheckout', {
+                value: 14.90,
+                currency: 'BRL',
+              });
+              window.location.href = 'https://economizai-delta.vercel.app/pagamento';
+            }}
             className="bg-[#25d366] hover:bg-[#1ea557] text-white text-base sm:text-lg font-medium px-6 py-3 rounded-full w-fit transition-colors shadow-md"
           >
             Assinar por 14,90/mês

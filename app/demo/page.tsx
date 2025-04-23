@@ -51,6 +51,12 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
+
 export default function DemoPage() {
   const [showChat, setShowChat] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
@@ -737,7 +743,13 @@ export default function DemoPage() {
 
                           <motion.div className="flex justify-center mt-4">
                             <button
-                              onClick={() => window.location.href = 'https://economizai-delta.vercel.app/pagamento'}
+                              onClick={() => {
+                                window.fbq('track', 'InitiateCheckout', {
+                                  value: 14.90,
+                                  currency: 'BRL',
+                                });
+                                window.location.href = 'https://economizai-delta.vercel.app/pagamento';
+                              }}
                               className="bg-[#25d366] text-white px-6 py-3 rounded-lg w-full font-medium text-lg"
                             >
                               Quero começar agora
