@@ -14,13 +14,27 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-[#f0f2f5] py-8 sm:py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+    <main className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+        {/* Logo */}
+        <div className="flex justify-center mb-8">
+          <motion.img 
+            src="/economiza-ai-logo.png" 
+            alt="Economiza Aí Logo" 
+            className="w-[150px] sm:w-[180px] md:w-[220px] h-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
+
+        {/* Título principal */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+          Que tal finalmente organizar sua vida financeira?
+        </h1>
+
         {/* Título e Subtítulo */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl font-black mb-4 px-2 text-[#1a1a1a] font-sans">
-            Que tal finalmente organizar sua vida financeira?
-          </h1>
           <h2 className="text-2xl sm:text-3xl font-medium mb-4 px-2 text-gray-700">
             Controle suas finanças direto pelo{' '}
             <span className="text-[#25d366] font-bold">WhatsApp</span>!
