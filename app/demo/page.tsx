@@ -48,7 +48,11 @@ const getWeekPeriod = () => {
 
 // Adicionar uma função de scroll
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const offset = window.innerWidth < 768 ? 20 : 0; // Adiciona offset no mobile
+  window.scrollTo({ 
+    top: offset,
+    behavior: 'smooth' 
+  });
 };
 
 declare global {
@@ -146,12 +150,12 @@ export default function DemoPage() {
 
   const handleStep1Continue = () => {
     setCurrentStep(2);
-    scrollToTop();
+    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep2Continue = () => {
     setCurrentStep(3);
-    scrollToTop();
+    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep3Click = () => {
@@ -175,7 +179,7 @@ export default function DemoPage() {
 
   const handleStep3Continue = () => {
     setCurrentStep(4);
-    scrollToTop();
+    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep4Click = () => {
@@ -200,7 +204,7 @@ export default function DemoPage() {
                 case 1:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -380,7 +384,7 @@ export default function DemoPage() {
                 case 2:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -491,7 +495,7 @@ export default function DemoPage() {
                 case 3:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
