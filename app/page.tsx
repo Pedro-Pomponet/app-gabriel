@@ -14,17 +14,19 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-gray-50 relative pt-[120px]">
-      {/* Logo em posição absoluta */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2">
-        <motion.img 
-          src="/economiza-ai-logo.png" 
-          alt="Economiza Aí Logo" 
-          className="w-[150px] sm:w-[180px] md:w-[220px] h-auto"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        />
+    <main className="min-h-screen bg-gray-50 relative sm:static pt-[120px] sm:pt-8">
+      {/* Logo com posição absoluta apenas no mobile */}
+      <div className="absolute sm:static top-4 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0">
+        <div className="flex justify-center">
+          <motion.img 
+            src="/economiza-ai-logo.png" 
+            alt="Economiza Aí Logo" 
+            className="w-[150px] sm:w-[180px] md:w-[220px] h-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 space-y-6">
@@ -48,10 +50,10 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {/* Card 1 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
-            <div className="flex items-start -mt-1">
-              <span className="text-xl sm:text-2xl flex-shrink-0 -mt-1 mr-1">🤔</span>
-              <div className="-mt-1">
-                <h3 className="font-bold text-base sm:text-lg leading-[1] mb-1">"Cadê meu dinheiro?"</h3>
+            <div className="flex items-start">
+              <span className="text-xl sm:text-2xl flex-shrink-0">🤔</span>
+              <div className="ml-1 sm:ml-4">
+                <h3 className="font-bold text-base sm:text-lg leading-none mb-1">"Cadê meu dinheiro?"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Você fala o mês inteiro e no fim... cadê o salário? Descubra exatamente pra onde seu dinheiro tá indo.
                 </p>
@@ -62,8 +64,8 @@ export default function Home() {
           {/* Card 2 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
             <div className="flex items-start">
-              <span className="text-xl sm:text-2xl flex-shrink-0 mr-1">📊</span>
-              <div>
+              <span className="text-xl sm:text-2xl flex-shrink-0">📊</span>
+              <div className="ml-1 sm:ml-4">
                 <h3 className="font-bold text-base sm:text-lg leading-none mb-1">"Chega de planilhas complicadas"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Planilhas, apps, mil abas abertas... ninguém merece. Aqui, você resolve tudo com uma mensagem no WhatsApp.
