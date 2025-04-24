@@ -14,20 +14,20 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
-        {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <motion.img 
-            src="/economiza-ai-logo.png" 
-            alt="Economiza Aí Logo" 
-            className="w-[150px] sm:w-[180px] md:w-[220px] h-auto"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          />
-        </div>
+    <main className="min-h-screen bg-gray-50 relative pt-[120px]">
+      {/* Logo em posição absoluta */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2">
+        <motion.img 
+          src="/economiza-ai-logo.png" 
+          alt="Economiza Aí Logo" 
+          className="w-[150px] sm:w-[180px] md:w-[220px] h-auto"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
 
+      <div className="max-w-4xl mx-auto px-4 space-y-6">
         {/* Título principal */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
           Que tal finalmente organizar sua vida financeira?
@@ -48,10 +48,10 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {/* Card 1 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <span className="text-xl sm:text-2xl flex-shrink-0">🤔</span>
-              <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">"Cadê meu dinheiro?"</h3>
+            <div className="flex items-start -mt-1">
+              <span className="text-xl sm:text-2xl flex-shrink-0 -mt-1 mr-1">🤔</span>
+              <div className="-mt-1">
+                <h3 className="font-bold text-base sm:text-lg leading-[1] mb-1">"Cadê meu dinheiro?"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Você fala o mês inteiro e no fim... cadê o salário? Descubra exatamente pra onde seu dinheiro tá indo.
                 </p>
@@ -61,10 +61,10 @@ export default function Home() {
 
           {/* Card 2 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <span className="text-xl sm:text-2xl flex-shrink-0">📊</span>
+            <div className="flex items-start">
+              <span className="text-xl sm:text-2xl flex-shrink-0 mr-1">📊</span>
               <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">"Chega de planilhas complicadas"</h3>
+                <h3 className="font-bold text-base sm:text-lg leading-none mb-1">"Chega de planilhas complicadas"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Planilhas, apps, mil abas abertas... ninguém merece. Aqui, você resolve tudo com uma mensagem no WhatsApp.
                 </p>
@@ -74,10 +74,10 @@ export default function Home() {
 
           {/* Card 3 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <span className="text-xl sm:text-2xl flex-shrink-0">💸</span>
+            <div className="flex items-start">
+              <span className="text-xl sm:text-2xl flex-shrink-0 mr-1">💸</span>
               <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">"Afogado nas dívidas"</h3>
+                <h3 className="font-bold text-base sm:text-lg leading-none mb-1">"Afogado nas dívidas"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Não sabe quem tá devendo, quanto falta ou como sair dessa? A gente te ajuda a organizar as parcelas e montar um plano.
                 </p>
@@ -87,10 +87,10 @@ export default function Home() {
 
           {/* Card 4 */}
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <span className="text-xl sm:text-2xl flex-shrink-0">✏️</span>
+            <div className="flex items-start">
+              <span className="text-xl sm:text-2xl flex-shrink-0 mr-1">✏️</span>
               <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">"Errei na anotação?"</h3>
+                <h3 className="font-bold text-base sm:text-lg leading-none mb-1">"Errei na anotação?"</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Mandou um valor errado ou esqueceu de anotar? É só mandar uma mensagem e o bot corrige pra você.
                 </p>

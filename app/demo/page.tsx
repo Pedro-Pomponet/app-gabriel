@@ -46,15 +46,6 @@ const getWeekPeriod = () => {
   };
 };
 
-// Adicionar uma função de scroll
-const scrollToTop = () => {
-  const offset = window.innerWidth < 768 ? 20 : 0; // Adiciona offset no mobile
-  window.scrollTo({ 
-    top: offset,
-    behavior: 'smooth' 
-  });
-};
-
 declare global {
   interface Window {
     fbq: any;
@@ -150,12 +141,10 @@ export default function DemoPage() {
 
   const handleStep1Continue = () => {
     setCurrentStep(2);
-    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep2Continue = () => {
     setCurrentStep(3);
-    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep3Click = () => {
@@ -179,7 +168,6 @@ export default function DemoPage() {
 
   const handleStep3Continue = () => {
     setCurrentStep(4);
-    setTimeout(() => scrollToTop(), 100);
   };
 
   const handleStep4Click = () => {
@@ -195,26 +183,26 @@ export default function DemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#e5e7eb] flex justify-center items-start">
-      <div className="w-full max-w-2xl md:py-8 md:px-4">
-        <div className="w-full max-w-[430px] mx-auto pt-6">
+    <div className="min-h-screen bg-[#e5e7eb] relative">
+      <div className="w-full max-w-2xl mx-auto px-3 md:px-4 pt-4">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-full max-w-[430px]">
           <AnimatePresence mode="wait">
             {(() => {
               switch (currentStep) {
                 case 1:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
                     >
-                      <div className="flex items-start gap-3 mb-4">
+                      <div className="flex items-start gap-2 mb-2">
                         <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
                           1
                         </div>
                         <div>
-                          <h2 className="text-lg font-medium mb-1">Adicione Despesas ou Receitas</h2>
+                          <h2 className="text-lg font-medium mb-[2px]">Adicione Despesas ou Receitas</h2>
                           <p className="text-gray-600 text-sm">
                             "mercado 80" ou "uber 25"
                           </p>
@@ -241,7 +229,7 @@ export default function DemoPage() {
                           </div>
                         ) : (
                           <motion.div 
-                            className="bg-[#efeae2] rounded-lg p-3 space-y-3"
+                            className="bg-[#efeae2] rounded-lg p-3 space-y-4 mb-4"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                           >
@@ -384,7 +372,7 @@ export default function DemoPage() {
                 case 2:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -421,7 +409,7 @@ export default function DemoPage() {
                           </div>
                         ) : (
                           <motion.div 
-                            className="bg-[#efeae2] rounded-lg p-3 space-y-3"
+                            className="bg-[#efeae2] rounded-lg p-3 space-y-4 mb-4"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                           >
@@ -495,7 +483,7 @@ export default function DemoPage() {
                 case 3:
                   return (
                     <motion.div 
-                      className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mt-2 sm:mt-0"
+                      className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
@@ -527,7 +515,7 @@ export default function DemoPage() {
                           </div>
                         ) : (
                           <motion.div 
-                            className="bg-[#efeae2] rounded-lg p-3 space-y-3"
+                            className="bg-[#efeae2] rounded-lg p-3 space-y-4 mb-4"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                           >
@@ -606,9 +594,10 @@ export default function DemoPage() {
                     <>
                       {/* Passo 4 - Dashboard */}
                       <motion.div 
-                        className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mb-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
                       >
                         <div className="flex items-start gap-3 mb-4">
                           <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
@@ -657,9 +646,10 @@ export default function DemoPage() {
                       {/* Passo 5 - Transações */}
                       {showStep5 && (
                         <motion.div 
-                          className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0 mb-4"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 20 }}
                         >
                           <div className="flex items-start gap-3 mb-4">
                             <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
@@ -709,9 +699,10 @@ export default function DemoPage() {
                       {/* Passo 6 - Relatórios */}
                       {showStep6 && (
                         <motion.div 
-                          className="bg-white/95 rounded-2xl shadow-md p-4 h-auto md:min-h-0"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-white/95 rounded-2xl shadow-md p-4 mx-auto max-h-[90vh] overflow-y-auto"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 20 }}
                         >
                           <div className="flex items-start gap-3 mb-4">
                             <div className="bg-[#25d366] w-8 h-8 rounded-full flex items-center justify-center text-white font-medium">
